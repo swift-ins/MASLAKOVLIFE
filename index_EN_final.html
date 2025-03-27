@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>MASLAKOVLIFE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- Аудиоплеер (скрытый) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.dropbox.com/scl/fi/lcrd0oo393x6hjc2suifh/ML.mp3?rlkey=ixaq637pvyqhgzr1cu9xc059e&st=18ebambp&dl=1" type="audio/mp3">
+    </audio>
+    
+    <!-- Кнопка включения/выключения музыки -->
+    <button id="music-toggle" onclick="toggleMusic()" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 15px; font-size: 16px;">
+        🔊 Play Music
+    </button>
+    
+    <script>
+        let audio = document.getElementById("bg-music");
+        let button = document.getElementById("music-toggle");
+    
+        // Попытка автоматического воспроизведения
+        document.addEventListener("DOMContentLoaded", function() {
+            let playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    button.innerText = "🔇 Pause Music";
+                }).catch(() => {
+                    console.log("Автовоспроизведение заблокировано браузером.");
+                });
+            }
+        });
+    
+        // Функция для управления музыкой
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                button.innerText = "🔇 Pause Music";
+            } else {
+                audio.pause();
+                button.innerText = "🔊 Play Music";
+            }
+        }
+    </script>
+<header>
+    <div class="header">
+        <div class="header-video-wrapp" id="header-video">
+            <div class="header-video-box">
+                <video id="player" class="header-video" poster="photo_start.jpg" onclick="document.getElementById('player').pause(); document.getElementById('header-video').style.display = 'none'">
+                    <source src="video/bg4.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#portfolio">Portfolio-My World</a></li>
+            <li><a href="#about">About</a></li>
+            <li class="logo" onclick="document.getElementById('player').play(); document.getElementById('header-video').style.display = 'block'"></li>
+            <li><a href="#blog">Advertising projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-title">
+        <h1>MASLAKOVLIFE <span class="header-title-grey"></span></h1>
+    </div>
+</header>
+
+<div class="quote">
+    <div class="slogan">Flipping  <span class="slogan-grey">through the moments</span></div>
+</div>
+
+<div class="portfolio" id="portfolio">
+    <div class="portfolio-title"><h2>Portfolio</h2></div>
+    <div class="portfolio-nav">
+        <ul>
+            <li><a href="#">Face</a></li>
+            <li><a href="#">City</a></li>
+            <li><a href="#">Views</a></li>
+        </ul>
+    </div>
+    
+    <div class="puzzle">                
+        <div class="img img3"></div>
+        <div class="img img2"></div>
+        <div class="img img1"></div>
+        <div class="img img4"></div>
+        <div class="img img5"></div>
+        <div class="puzzle-title">My World</div>
+        <div class="img img7"></div>
+        <div class="img img6"></div>
+    </div>
+
+    <div class="puzzle-load">
+        <span id="load1" onclick="showBlock('lay1', 'load1', 'load2')">Load more</span>
+    </div>
+
+    <div class="puzzle-none" id="lay1">                
+        <div class="img img15"></div>
+        <div class="img img14"></div>
+        <div class="img img13"></div>
+        <div class="img img16"></div>
+        <div class="img img17"></div>
+        <div class="img img19"></div>
+        <div class="img img18"></div>
+    </div>
+
+    <div class="puzzle-load" id="load2-container" style="display:none;">
+        <span id="load2" onclick="showBlock('lay2', 'load2', 'load3')">Load more</span>
+    </div>
+
+    <div class="puzzle-none" id="lay2">                
+        <div class="img img22"></div>
+        <div class="img img23"></div>
+        <div class="img img24"></div>
+    </div>
+
+    <div class="puzzle-load" id="load3-container" style="display:none;">
+        <span id="load3" onclick="showBlock('lay3', 'load3', 'load4')">Load more</span>
+    </div>
+
+    <div class="puzzle-none" id="lay3">                
+        <div class="img img25"></div>
+        <div class="img img26"></div>
+        <div class="img img27"></div>
+    </div>
+                
+    <div class="puzzle-load" id="load4-container" style="display:none;">
+        <span id="load4" onclick="showBlock('lay4', 'load4', 'load5')">Load more</span>
+    </div>
+
+    <div class="puzzle-none" id="lay4">                
+        <div class="img img29"></div>
+        <div class="img img30"></div>
+        <div class="img img31"></div>
+    </div>
+    
+    <div class="puzzle-load" id="load5-container" style="display:none;">
+        <span id="load5" onclick="showBlock('lay5', 'load5', 'hide')">Load more</span>
+    </div>
+    
+    <div class="puzzle-none" id="lay5">                
+        <div class="img img33"></div>
+        <div class="img img34"></div> 
+        <div class="img img35"></div>       
+    </div>
+
+    <div class="puzzle-load" id="hide-container" style="display:none;">
+        <a href="#portfolio">
+            <span id="hide" onclick="hideAll()">Hide</span>
+        </a>
+    </div>
+</div>
+
+<script>
+function showBlock(layId, currentLoadId, nextLoadId) {
+    document.getElementById(layId).style.display = 'block';
+    document.getElementById(currentLoadId).style.display = 'none';
+    if (nextLoadId !== 'hide') {
+        document.getElementById(nextLoadId + '-container').style.display = 'block';
+    } else {
+        document.getElementById('hide-container').style.display = 'block';
+    }
+}
+
+function hideAll() {
+    for (let i = 1; i <= 5; i++) {
+        let lay = document.getElementById('lay' + i);
+        if (lay) lay.style.display = 'none';
+    }
+    document.getElementById('load1').style.display = 'block';
+    document.getElementById('load2-container').style.display = 'none';
+    document.getElementById('hide-container').style.display = 'none';
+}
+</script>
+</body>
+
+ 
+            </div> <!-- portfolio -->     
+
+        <style>
+.photo-container {
+    .photo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.photo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.slogan {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+.slogan-grey {
+    color: #ccc;
+}
+
+            </style>
+        </head>
+         <body>
+        </div> <!-- row blog-article  -->
+
+    </div> <!-- blog-content -->
+
+            
+</div> <!-- row blog-article  -->
+    
+<div class="row blog-footer"></div>
+    <div class="cell blog-date">
+        <div class="date">Adding colors, I bring meaning</div>
+    
+</div> <!-- blog-content -->
+<div class="blog-older"><a href="#">Older posts</a></div>
+</div> <!-- blog -->   
+
+        
+        <div class="about" id="about" style="margin-bottom: 20px;">
+            <div class="about-title"><h2>About People</h2></div>
+            <h3 style="text-align: center;">Every gaze tells a story</h3>
+        
+            <!-- Контейнер для всех  фотографий и текста -->
+            <div class="portrait-container" style="display: flex; align-items: flex-start; gap: 10px; position: relative;">
+                <!-- Левая колонка (старая и новая фотографии) -->
+                <div class="img-left-column" style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+                    <div class="img-left" style="position: relative; top: -30px;">
+                        <img src="01.jpg" alt="Portrait Photography" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <div class="img-new-left" style="position: relative; top: 20px;"> <!-- Смещение вниз -->
+                        <img src="02.jpg" alt="Portrait Photography" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+        
+                <!-- Текст по центру -->
+                <div class="text-center" style="flex: 2; text-align: center; color: #080101; font-size: 1.3em; font-weight: bold;">
+                    <p>I believe that every person is a universe of their own.</p>
+                    <p>Even those who blend into the crowd carry a unique story within them. I see it in the corners of their lips, in the delicate lines of their face, in the depth of their gaze. Joy, sorrow, dreams, and struggles—all are reflected on their features, waiting to be seen.</p>
+                    <p>My mission is to capture more than just an appearance—I seek the essence. To catch the moment when a person is truly themselves and preserve them as they are—real and authentic.</p>
+                </div>
+                        <!-- Правая колонка (старая и новая фотографии) -->
+                        <div class="img-right-column" style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+                            <!-- Старая фотография справа (20.jpg) -->
+                            <div class="img-right" style="position: relative; top: -30px;">
+                                <img src="03.jpg" alt="Portrait Photography" style="width: 100%; height: auto; display: block;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
+                
+            </div> <!-- Закрываем portrait-container -->
+</div> <!-- Закрываем about -->
+
+
+    </div>
+                           
+</div> <!-- row blog-article  -->
+
+<div class="about" id="about" style="margin-top: 10px; position: relative; text-align: center;">
+<div class="about-title"><h2>About Nature</h2></div>
+<h3 style="text-align: center;">Where light meets the soul</h3>
+    
+        <!-- Контейнер для фото и текста -->
+        <div class="full-screen-image" style="display: flex; justify-content: flex-start; align-items: center; height: 100vh; overflow: hidden; position: relative;">
+            <!-- Фото смещено влево -->
+            <img src="04.jpg" alt="Nature Photography" style="max-width: 50%; max-height: 100%; object-fit: contain;">
+    
+            <!-- Текст справа от фото -->
+            <div class="text-overlay" style="width: 40%; margin-left: 5%; color: #080101; font-size: 1.3em; font-weight: bold; z-index: 2;">
+                <p>No need to simply capture the world—the goal is to convey what is felt.</p>
+                <p>Photography is the breath of nature, frozen in a moment. Simple, sometimes muted in color, yet filled with silence, light, and something elusive that makes the moment special.</p>
+                <p>The unnoticed details hold the most meaning: the dance of the wind, the depth of a gaze, a quiet story hidden in the line of the horizon. Photography has the power to preserve these moments and bring them a little closer.</p>
+            </div>
+        </div>
+    </div>
+</div> <!-- blog-content -->
+
+            
+    </div> <!-- row blog-article  -->
+    
+    <div class="row blog-footer"></div>
+        <div class="cell blog-date">
+            <div class="date">Advertising project:Changing standards</div>
+        
+</div> <!-- blog-content -->
+<div class="blog-older"><a href="#">Older posts</a></div>
+</div> <!-- blog -->   
+
+<div class="about" id="about" style="margin-bottom: 1px; position: relative; background-image: url('05.jpg'); background-size: cover; background-position: center; padding: 20px;">
+<div class="about-title"><h2></h2></div>
+
+<!-- Контейнер для всех фотографий и текста -->
+<div class="portrait-container" style="display: flex; align-items: flex-start; gap: 10px; position: relative;">
+</div>
+</div>
+
+<div class="row blog-footer">
+<div class="cell blog-date">
+
+<div class="about" id="about" style="margin-top: 10px; position: relative; text-align: center;">
+<h3 style="text-align: center; margin-left: 3cm; display: inline-block;">Advertising is the art of selling emotions.</h3>
+
+<div class="text-center" style="flex: 2; text-align: center; color: #0b0b0b; font-size: 1.5em; font-weight: bold; padding: 10px;">
+<p>Advertising projects are the art of understanding the client.</p>
+<p>For me, it’s not just about taking a beautiful shot but immersing myself in the client’s world—understanding their style, character, and values. I turn photographs into the visual voice of a brand, creating images that capture its essence and draw attention.</p>
+</div>
+</div>
+
+<div class="contact" id="contact" style="text-align: center;">
+<div class="contact-title"><h2>Contact</h2></div>
+<div class="connect">
+
+
+<p>Email: maslakovlife@gmail.com<br>
+Phone: +371 20273 062, +346 72023 885</p>
+<p>WhatsApp, Telegram, Facebook, Instagram</p>
+
+<!-- Иконка, выровненная по центру -->
+<div style="text-align: center;">
+<img src="icon.jpg" style="width: 5%; height: auto; display: inline-block;">
+</div>
+
+<p>Specializing in weddings and family portraits. Aerial drone photography<br>from breathtaking heights. .</p>
+</div>
+
+
+</body>
+</html>            

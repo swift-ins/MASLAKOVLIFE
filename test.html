@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <title>MASLAKOVLIFE</title>             
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <header>
+            
+            <div class="header">
+                <div class="header-video-wrapp" id="header-video">
+                    <div class="header-video-box">
+                       <video id="player" class="header-video" auto poster="photo_start.jpg" onclick="document.getElementById('player').pause(); document.getElementById('header-video').style.display = 'none'">
+                           <source src="video/bg4.mp4" type="video/mp4" >
+</video>
+                    </div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#portfolio">Portfolio-my favorites</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li class="logo" onclick="document.getElementById('player').play(); document.getElementById('header-video').style.display = 'block'"></li>
+                    <li><a href="#blog">Advertising projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-title" ><h1>MASLAKOVLIFE <span class="header-title-grey"></span></h1></div>
+        </header>
+        
+        <div class="quote">
+                <div class="slogan">Adding colors, <span class="slogan-grey">I bring meaning</span></div>
+        </div>
+        
+        <div class="portfolio" id="portfolio">
+            <div class="portfolio-title"><h2>Portfolio</h2></div>
+            <div class="portfolio-nav">
+                <ul>
+                    <li><a href="#" class="active">All</a></li>
+                    <li><a href="#">Man</a></li>
+                    <li><a href="#">Woman</a></li>
+                    <li><a href="#">Other</a></li>
+                </ul>
+            </div>
+
+            <div class="puzzle">                
+                <div class="img img3"></div>
+                <div class="img img2"></div>
+                <div class="img img1"></div>
+                <div class="img img4"></div>
+                <div class="img img5"></div>
+                <div class="puzzle-title">My favorites</div>
+                <div class="img img7"></div>
+                <div class="img img6"></div>
+            </div>
+            <div class="puzzle-none" id="lay">                
+                <div class="img img15"></div>
+                <div class="img img14"></div>
+                <div class="img img13"></div>
+                <div class="img img16"></div>
+                <div class="img img17"></div>
+                <div class="img img19"></div>
+                <div class="img img18"></div>
+            </div>
+                <div class="puzzle-load">
+                <span id="load" onclick="document.getElementById('lay').style.display = 'block'; document.getElementById('load').style.display = 'none'; document.getElementById('hide').style.display = 'block';" >Load more</span>
+               <a href="#portfolio"> <span id="hide" onclick="document.getElementById('lay').style.display = 'none'; document.getElementById('load').style.display = 'block'; document.getElementById('hide').style.display = 'none';" >Hide</span></a></div>
+            
+        </div> <!-- portfolio -->    
