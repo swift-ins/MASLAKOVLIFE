@@ -521,6 +521,31 @@ h2 {
     float: right;
 }
 
+.img36 {
+    width: 19.8947vw;
+    height: 26.0526vw;
+    background-image: url("image/img36.jpg");
+    margin-left: 0.9474vw;
+    float: right;
+}
+
+.img37 {
+    width: 19.8947vw;
+    height: 26.0526vw;
+    background-image: url("image/img37.jpg");
+    margin-right: 0.9474vw;
+    float: left;
+}
+
+
+.img38 {
+    width: 19.8947vw;
+    height: 26.0526vw;
+    background-image: url("image/img38.jpg");
+    float: right;
+}
+
+
 .puzzle-load {
     width: 61.5789vw;
     height: 5.2632vw;

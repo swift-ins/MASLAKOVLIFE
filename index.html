@@ -9,44 +9,6 @@
 
 <body>
 
-
-    <!-- Аудиоплеер (скрытый) -->
-    <audio id="bg-music" loop>
-        <source src="https://www.dropbox.com/scl/fi/lcrd0oo393x6hjc2suifh/ML.mp3?rlkey=ixaq637pvyqhgzr1cu9xc059e&st=18ebambp&dl=1" type="audio/mp3">
-    </audio>
-    
-    <!-- Кнопка включения/выключения музыки -->
-    <button id="music-toggle" onclick="toggleMusic()" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 15px; font-size: 16px;">
-        🔊 Play Music
-    </button>
-    
-    <script>
-        let audio = document.getElementById("bg-music");
-        let button = document.getElementById("music-toggle");
-    
-        // Попытка автоматического воспроизведения
-        document.addEventListener("DOMContentLoaded", function() {
-            let playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    button.innerText = "🔇 Pause Music";
-                }).catch(() => {
-                    console.log("Автовоспроизведение заблокировано браузером.");
-                });
-            }
-        });
-    
-        // Функция для управления музыкой
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                button.innerText = "🔇 Pause Music";
-            } else {
-                audio.pause();
-                button.innerText = "🔊 Play Music";
-            }
-        }
-    </script>
 <header>
     <div class="header">
         <div class="header-video-wrapp" id="header-video">
