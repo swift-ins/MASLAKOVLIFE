@@ -545,6 +545,37 @@ h2 {
     float: right;
 }
 
+.img40 {   
+    margin: 0;
+    padding: 0;        
+    height: 80vh;
+    background: url('image/img40.jpg') no-repeat left center/cover;
+
+}
+
+.img41 {
+    width: 19.8947vw;
+    height: 26.0526vw;
+    background-image: url("image/img41.jpg");
+    margin-left: 0.9474vw;
+    float: right;
+}
+
+.img42 {
+    width: 19.8947vw;
+    height: 26.0526vw;
+    background-image: url("image/img42.jpg");
+    margin-right: 0.9474vw;
+    float: left;
+}
+
+
+.img43 {
+    width: 19.8947vw;
+    height: 26.0526vw;
+    background-image: url("image/img43.jpg");
+    float: right;
+}
 
 .puzzle-load {
     width: 61.5789vw;
@@ -748,13 +779,16 @@ article p {
 }
 
 .date {
-    display: block;
-    float: left;
+    display: inline-block; /* Сжимает блок по размеру текста */
+    float: none; /* Убирает float, если он не нужен */
     font-family: LatoLight;
-    font-size: 0.875em;
+    font-size: 1em;
     text-transform: uppercase; 
-    color: #6a5a75;
+    color: #0d0d0d;
     line-height: 1.5em;
+    padding: 5px 10px; /* Добавь немного отступов для красивого вида */
+    background: white; /* Если есть фоновый цвет */
+    border-radius: 5px; /* Немного скруглит углы */
 }
 
 .blog-load {
